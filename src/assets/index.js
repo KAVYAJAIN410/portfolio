@@ -1,12 +1,13 @@
 import logo from "./logo.png";
 import backend from "./backend.png";
 import creator from "./creator.png";
+import electronJs from "./electronJs.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
-
+import electron from "./tech/electron.png"
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
@@ -28,9 +29,9 @@ import tesla from "./company/tesla.png";
 
 import carrent from "./carrent.mov";
 import jobit from "./jobit.mov";
-import tripguide from "./tripguide.png";
-
+import tripguide from "./tripguide.mov"
 export {
+  electron,
   logo,
   backend,
   creator,
@@ -59,4 +60,5 @@ export {
   carrent,
   jobit,
   tripguide,
+  electronJs
 };

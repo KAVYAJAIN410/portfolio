@@ -5,36 +5,56 @@ import { logo, menu, close } from '../assets';
 
 const Navbar = () => {
   const [active, setActive] = useState("");
-   const [toggle,setToggle]=useState(false)
+  const [toggle, setToggle] = useState(false);
+
   return (
-    <>
     <nav className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}>
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
-          <img src={logo} alt='logo' className="h-11 w-100 object-contain"></img>
-          <p className='text-white text-[18px] font-bold cursor-pointer'>Kavya Jain</p>
-       <ul className='list-none hidden sm:flex flex-row gap-10'>
-         {navLinks.map((link)=>(
-          <li key={link.id} className={`${active===link.title?"text-white":"text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`} onClick={()=>setActive(link.title)}>
-             <a href={`#${link.id}`}>{link.title}</a>
-          </li>
-         ))}
-       </ul>
-       <div className='sm:hidden '> 
-        <img src={toggle ? close:menu} onClick={()=>setToggle(!toggle)}></img>
-       </div>
-       <div className={`${!toggle ? 'hidden':'flex'} sm:hidden p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded`}>
-    <ul className='list-none flex justify-end item-start flex-col gap-4'>
-         {navLinks.map((link)=>(
-          <li key={link.id} className={`${active===link.title?"text-white":"text-secondary"}font-poppins font-medium curson-pointer text-[16px] hover:text-white text-[18px] font-medium cursor-pointer`} onClick={()=>{setActive(link.title),setToggle(!toggle)}}>
-             <a href={`#${link.id}`}>{link.title}</a>
-          </li>
-         ))}
-       </ul>
-    </div>
+        {/* Logo and Name Container */}
+        <div className="flex items-center">
+          <img src={logo} alt='logo' className="h-11 w-auto object-contain" />
+          <p className='text-white text-[18px] font-bold cursor-pointer ml-2'>Kavya Jain</p>
+        </div>
+
+        {/* Desktop Navigation Links */}
+        <ul className='list-none hidden sm:flex flex-row gap-10'>
+          {navLinks.map((link) => (
+            <li 
+              key={link.id} 
+              className={`${active === link.title ? "text-white" : "text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`} 
+              onClick={() => setActive(link.title)}
+            >
+              <a href={`#${link.id}`}>{link.title}</a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Menu Toggle */}
+        <div className='sm:hidden'> 
+          <img 
+            src={toggle ? close : menu} 
+            alt="menu" 
+            onClick={() => setToggle(!toggle)} 
+            className="w-6 h-6 object-contain cursor-pointer"
+          />
+        </div>
+
+        {/* Mobile Navigation Links */}
+        <div className={`${!toggle ? 'hidden' : 'flex'} sm:hidden p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded`}>
+          <ul className='list-none flex justify-end items-start flex-col gap-4'>
+            {navLinks.map((link) => (
+              <li 
+                key={link.id} 
+                className={`${active === link.title ? "text-white" : "text-secondary"} font-poppins font-medium cursor-pointer text-[16px] hover:text-white`} 
+                onClick={() => { setActive(link.title); setToggle(!toggle); }}
+              >
+                <a href={`#${link.id}`}>{link.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </nav>
-    
-    </>
   );
 }
 

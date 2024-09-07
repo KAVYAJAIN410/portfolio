@@ -1,13 +1,14 @@
 import {
   mobile,
   backend,
-  creator,
+  electronJs,
   web,
   javascript,
   typescript,
   html,
   css,
   reactjs,
+  electron,
   redux,
   tailwind,
   nodejs,
@@ -42,8 +43,8 @@ const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
-    icon: web,
+    title: "Electron js",
+    icon: electronJs,
   },
   {
     title: "React Developer",
@@ -54,12 +55,16 @@ const services = [
     icon: backend,
   }, 
   {
-    title: "Devops",
-    icon: creator,
+    title: "Web Developer",
+    icon: web,
   }
 ];
 
 const technologies = [
+  {
+    name: "electron",
+    icon: electron,
+  },
   {
     name: "HTML 5",
     icon: html,
@@ -79,10 +84,6 @@ const technologies = [
   {
     name: "React JS",
     icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
   },
   {
     name: "Tailwind CSS",
@@ -198,6 +199,31 @@ const testimonials = [
 
 const projects = [
   {
+    name: "Electron js groundstation GUI",
+    description:
+      "A Desktop application made on elecreon js for a cansat satellite which take the real time sensor values and plot the live graph of it with gps tracking",
+    tags: [
+      {
+        name: "electron Js",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "e-chart",
+        color: "green-text-gradient",
+      },
+      {
+        name: "maplib",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Js",
+        color: "pink-text-gradient",
+      },
+    ],
+    video: tripguide,
+    source_code_link: "https://github.com/",
+  },
+  {
     name: "Quiz",
     description:
      "Quiz platform where you can upload your questions and their corresponding options. It supports multi-correct questions, and you can also specify negative markings.",
@@ -251,31 +277,7 @@ const projects = [
     video: jobit,
     source_code_link: "#",
   },
-  {
-    name: "Portfolio using Three Js",
-    description:
-      "A 3d motion portfolio",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "three-Js",
-        color: "green-text-gradient",
-      },
-      {
-        name: "motion",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
-    ],
-    video: tripguide,
-    source_code_link: "https://github.com/",
-  }
+ 
 ];
 
 export { services, technologies, experiences, testimonials, projects,navLinks };
