@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
-
 import { styles } from "../styles";
 import { github } from "../assets";
 import SectionWrapper from "../hoc/SectionWrapper";
@@ -16,6 +15,8 @@ const ProjectCard = ({
   video, // Change from 'image' to 'video'
   source_code_link,
 }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <motion.div
       variants={fadeIn("up", "spring", index * 0.5, 0.75)}
@@ -30,16 +31,24 @@ const ProjectCard = ({
         className='flex flex-col h-full'
       >
         <div className='relative w-full h-[230px]'>
+          {isLoading && (
+            <div className='absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 rounded-2xl'>
+              <div className='loader'>Loading...</div>
+            </div>
+          )}
           <video
             src={video} // Video source
-            className='w-full h-full object-cover rounded-2xl'
+            className={`w-full h-full object-cover rounded-2xl ${isLoading ? 'hidden' : 'block'}`}
             autoPlay // Autoplay the video
             loop // Loop the video
             muted // Mute the video
             playbackRate={1.5} // Increase playback speed to 1.5x
             onLoadedMetadata={(e) => {
               e.target.playbackRate = 1.5; // Ensure playback rate is set
+              setIsLoading(false); // Hide loader once metadata is loaded
             }}
+            onCanPlay={() => setIsLoading(false)} // Hide loader when video is ready to play
+            onError={() => setIsLoading(false)} // Hide loader if there's an error
           />
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
             <div
